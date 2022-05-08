@@ -1,10 +1,71 @@
+let individualRadioButton = document.getElementById("individual-user-button");
+let corporateRadioButton = document.getElementById("corprate-user-button");
+let individualInfo = document.getElementById("individual-user-info");
+let corporateInfo = document.getElementById("corporate-user-info");
+
 // rendering user profile
-function renderingUserProfile(userProfileObject) {
-    console.log(userProfileObject);
-    let usernameItem = document.getElementById("username-profile");
-    usernameItem.value = userProfileObject.username;
-    usernameItem.readOnly = true;
-    usernameItem.disabled = true;
+function renderingUserProfile() {
+    console.log("Gonna rendering user profile!");
+    $.ajax({
+        url : 'http://localhost:8084/api/user/getProfile',
+        method : 'GET',
+        dataType: 'json',
+        contentType : 'application/json',
+        data : JSON.stringify(""),
+        crossDomain: true,
+        xhrFields: {
+            withCredentials: true
+        },
+        success : function(data) {
+            console.log(data);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    }).then(function (res) {
+        let userProfileObject = res.data;
+
+        // set username
+        userProfileObject.username = (JSON.parse(localStorage.getItem("currentUserInfo"))).username;
+        let usernameItem = document.getElementById("username-profile");
+        usernameItem.value = userProfileObject.username;
+        usernameItem.readOnly = true;
+        usernameItem.disabled = true;
+
+        // set email
+        document.getElementById("user-email-profile").value = userProfileObject.email;
+
+        // set name
+        document.getElementById("user-firstname-profile").value = userProfileObject.firstName;
+        document.getElementById("user-lastname-profile").value = userProfileObject.lastName;
+
+        // set phone number
+        document.getElementById("user-phone-number-profile").value = userProfileObject.phoneNo;
+
+        // set address info
+        document.getElementById("user-address-profile").value = userProfileObject.address;
+        document.getElementById("user-city-profile").value = userProfileObject.city;
+        document.getElementById("user-state-profile").value = userProfileObject.state;
+        document.getElementById("user-zipcode-profile").value = userProfileObject.zipCode;
+
+        // set individual or corporate info
+        if (userProfileObject.type === "i") {
+            document.getElementById("individual-user-button").checked = true;
+            individualInfo.hidden = false;
+            corporateInfo.hidden = true;
+            
+            document.getElementById("individual-user-driver-license-number").value = userProfileObject.dln;
+            document.getElementById("individual-user-insurance-company").value = userProfileObject.insrcCompany;
+            document.getElementById("individual-user-insurance-number").value = userProfileObject.insrcNo;
+        }
+        else {
+            document.getElementById("corporate-user-button").checked = true;
+            individualInfo.hidden = true;
+            corporateInfo.hidden = false;
+
+            document.getElementById("corporate-name").selectedIndex = userProfileObject.corpId;
+        }
+    });
 }
 
 $(document).ready(function (){
@@ -13,7 +74,7 @@ $(document).ready(function (){
     $("#corporate-name").niceSelect();
     $("#corporate-name").niceSelect("destroy");
 
-    renderingUserProfile(JSON.parse(localStorage.getItem("currentUserInfo")));
+    renderingUserProfile();//JSON.parse(localStorage.getItem("currentUserInfo"))
 });
 
 
@@ -27,11 +88,6 @@ $("#user-profile-trigger").on("click", function(e) {
     window.location.href = "./account.html";
 })
 
-
-let individualRadioButton = document.getElementById("individual-user-button");
-// let corporateRadioButton = document.getElementById("corprate-user-button");
-let individualInfo = document.getElementById("individual-user-info");
-let corporateInfo = document.getElementById("corporate-user-info");
 $("#individual-user-button").on("click", function() {
     individualInfo.hidden = false;
     corporateInfo.hidden = true;
@@ -45,39 +101,44 @@ $("#corporate-user-button").on("click", function() {
 function isIndividualUser() {
     return individualRadioButton.checked;
 }
+
+function getListSelectedOption(listname) {
+    let list = document.getElementById(listname);
+    return list.options[list.selectedIndex];
+}
+
 $("#user-profile-info").submit(function (e){
     e.preventDefault();
     alert("Gonna save your profile!");
 
-    let userPorfileObject = {};
-    userPorfileObject.type = isIndividualUser() ? "i" : "c";
-    userPorfileObject.firstName = $("#user-firstname-profile").val();
-    userPorfileObject.lastName = $("#user-lastname-profile").val();
-    userPorfileObject.email = $("#user-email-profile").val();
-    userPorfileObject.phoneNo = $("#user-phone-number-profile").val();
-    userPorfileObject.address = $("#user-address-profile").val();
-    userPorfileObject.state = $("#user-state-profile").val();
-    userPorfileObject.city = $("#user-city-profile").val();
-    userPorfileObject.zipcode = $("#user-zipcode-profile").val();
+    let userProfileObjectJSON = {};
+    userProfileObjectJSON.type = isIndividualUser() ? "i" : "c";
+    userProfileObjectJSON.firstName = $("#user-firstname-profile").val();
+    userProfileObjectJSON.lastName = $("#user-lastname-profile").val();
+    userProfileObjectJSON.email = $("#user-email-profile").val();
+    userProfileObjectJSON.phoneNo = $("#user-phone-number-profile").val();
+    userProfileObjectJSON.address = $("#user-address-profile").val();
+    userProfileObjectJSON.state = $("#user-state-profile").val();
+    userProfileObjectJSON.city = $("#user-city-profile").val();
+    userProfileObjectJSON.zipcode = $("#user-zipcode-profile").val();
     if (isIndividualUser()) {
-        userPorfileObject.dln = $("#individual-user-driver-license-number").val();
-        userPorfileObject.insrcCompany =  $("#individual-user-insurance-company").val();
-        userPorfileObject.insrcNo =  $("#individual-user-insurance-number").val();
+        userProfileObjectJSON.dln = $("#individual-user-driver-license-number").val();
+        userProfileObjectJSON.insrcCompany =  $("#individual-user-insurance-company").val();
+        userProfileObjectJSON.insrcNo =  $("#individual-user-insurance-number").val();
     }
     else {
-        let listItem = document.getElementById("corporate-name");
-        userPorfileObject.corpId = listItem.options[listItem.selectedIndex].value;
+        userProfileObjectJSON.corpId = getListSelectedOption("corporate-name").value;
     }
 
-    console.log(userPorfileObject);
-    userPorfileObject = JSON.stringify(userPorfileObject);
+    console.log(userProfileObjectJSON);
+    userProfileObjectJSON = JSON.stringify(userProfileObjectJSON);
 
     $.ajax({
         url : 'http://localhost:8084/api/user/saveProfile',
         method : 'POST',
         dataType: 'json',
         contentType : 'application/json',
-        data : userPorfileObject,
+        data : userProfileObjectJSON,
         crossDomain: true,
         xhrFields: {
             withCredentials: true
