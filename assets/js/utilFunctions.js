@@ -105,6 +105,7 @@ function initializationUserStatus() {
 		console.log("Currently has a user logged in!");
 		[...document.getElementsByClassName("user-login-info")].forEach(element => element.hidden = false);
 		[...document.getElementsByClassName("homepage-initial-info")].forEach(element => element.hidden = true);
+		document.getElementById("username-navbar").textContent = (JSON.parse(localStorage.getItem("currentUserInfo"))).username;
 	}
 	else {
 		// show the breif info on the home page
