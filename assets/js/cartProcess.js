@@ -8,7 +8,7 @@ let totalPriceIncludeTax = 0;
 
 function setPrice(number) {
     document.getElementById("vehicle-total-money").childNodes[1].data = ` $${number}`;
-    taxPrice = (number * taxRate).toFixed(2);
+    taxPrice = parseFloat((number * taxRate).toFixed(2));
     document.getElementById("sales-tax-amount").childNodes[1].data = ` $${taxPrice}`;
     totalPriceIncludeTax = number + taxPrice;
     document.getElementById("total-charge-including-tax").childNodes[1].data = ` $${totalPriceIncludeTax}`;
