@@ -167,7 +167,7 @@ $(document).ready(function () {
 });
 
 $("#coupon-code-form").submit(function (element) {
-    alert("Gonna verify coupon code!");
+    // alert("Gonna verify coupon code!");
     console.log("Input coupon code is:");
     console.log($("#coupon-code-input-content").val());
     element.preventDefault();
@@ -238,7 +238,7 @@ $("#user-coupon-list").on("change", function() {
 });
 
 $("#order-checkout-button").on("click", function(e) {
-    alert("Gonna checkout!");
+    // alert("Gonna checkout!");
     let paymentInfoModule = document.getElementById("payment-information");
     if (paymentInfoModule.hidden === true) {
         paymentInfoModule.hidden = false;
@@ -406,7 +406,7 @@ function addPayment() {
 
 $("#add-payment-button").on("click", function(e) {
     e.preventDefault();
-    alert("Gonna add a payment!");
+    // alert("Gonna add a payment!");
     
     addPayment();
 });
@@ -425,7 +425,7 @@ function getSinglePaymentInfo(paymentID) {
 
 $("#order-submit-button").on("click", function(e) {
     e.preventDefault();
-    alert("Gonna submit payment!");
+    // alert("Gonna submit payment!");
 
     let orderInfoJson = {};
     orderInfoJson.orderId = parseInt(localStorage.getItem("userOrderID"));

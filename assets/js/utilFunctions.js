@@ -140,7 +140,6 @@ function getCurrentSelectedVehicle() {
 }
 
 function logoutProcess() {
-	alert("Gonna Logout!");
 	localStorage.clear();
 	window.location.href = "./index.html";
 }

@@ -61,12 +61,14 @@ $( document ).ready(function () {
 
 let resultItem = [];
 $("#vehicle-search-filters-form").submit(function (element) {
+    element.preventDefault();
     //To continue search, user have to log in first 
     if (!verfiyUserStatus()) {
         alert("You have to log in first!");
+        window.location.href = "./login.html";
     }
     else {
-        alert("Gonna submit this form!!");
+        // alert("Gonna submit this form!!");
         let pickUpLocationID = $("#pick-up-office-location").val();
         console.log("Current pickup location ID is: ");
         console.log(pickUpLocationID);
@@ -75,13 +77,13 @@ $("#vehicle-search-filters-form").submit(function (element) {
 
         let pickupDate = $("#vehicle-rent-date").val();
         console.log(pickupDate);
-        let pickupTime = $("#vehicle-rent-time").val();
-        console.log(pickupTime);
+        // let pickupTime = $("#vehicle-rent-time").val();
+        // console.log(pickupTime);
 
         let returnDate = $("#vehicle-return-date").val();
         console.log(returnDate);
-        let returnTime = $("#vehicle-return-time").val();
-        console.log(returnTime);
+        // let returnTime = $("#vehicle-return-time").val();
+        // console.log(returnTime);
         let filterJSON = JSON.stringify({
             "pickUpLoc": pickUpLocationID,
             "pickUpDate": pickupDate,
@@ -90,7 +92,6 @@ $("#vehicle-search-filters-form").submit(function (element) {
         });
         console.log(filterJSON);
         
-        element.preventDefault();
         $.ajax({
             url : 'http://localhost:8084/api/vehicle/search',
             method : 'POST',
