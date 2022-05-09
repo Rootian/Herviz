@@ -3,12 +3,14 @@ let totalMoney = 0;
 let discountedPrice = 0;
 let paymentCount = 1;
 let taxRate = 0.08875;
+let taxPrice = 0;
 let totalPriceIncludeTax = 0;
 
 function setPrice(number) {
     document.getElementById("vehicle-total-money").childNodes[1].data = ` $${number}`;
-    document.getElementById("sales-tax-amount").childNodes[1].data = ` $${(number * taxRate).toFixed(2)}`;
-    totalPriceIncludeTax = (number * (1 + taxRate)).toFixed(2);
+    taxPrice = (number * taxRate).toFixed(2);
+    document.getElementById("sales-tax-amount").childNodes[1].data = ` $${taxPrice}`;
+    totalPriceIncludeTax = number + taxPrice;
     document.getElementById("total-charge-including-tax").childNodes[1].data = ` $${totalPriceIncludeTax}`;
 }
 
@@ -97,6 +99,15 @@ $(document).ready(function () {
             });
         }
 
+        function setReturnOffice() {
+            let dropOfficeID = parseInt(filterOptionJSON.dropLoc, 10)
+            JSON.parse(localStorage.getItem("officeLocationList")).forEach(function (element){
+                if (dropOfficeID === element.id)
+                document.getElementById("cart-return-location").childNodes[1].data = 
+                ` ${element.streetAddr}, ${element.city}, ${element.state}, ${element.zipCode}`;
+            });
+        }
+
         function setDate(elementID, isPickUpDate) {
             let dateElement = document.getElementById(elementID);
             if (isPickUpDate) {
@@ -110,6 +121,7 @@ $(document).ready(function () {
         console.log("gonna render the cart!");
         //Set order information
         setPickupOffice();
+        setReturnOffice();
         setDate("cart-pickup-date", true);
         setDate("cart-return-date", false);
         
