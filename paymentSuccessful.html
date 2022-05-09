@@ -174,7 +174,7 @@
 										<i class="fal fa-user"></i>
 									</button>
 									<div class="user_dropdown rotors_dropdown dropdown-menu clearfix" aria-labelledby="user_dropdown">
-										<div class="profile_info clearfix">
+										<div class="profile_info clearfix user-login-info">
 											<a href="#!" class="user_thumbnail">
 												<img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
 											</a>
@@ -183,10 +183,13 @@
 												<span class="user_title">Seller</span>
 											</div>
 										</div>
-										<ul class="ul_li_block clearfix">
-											<li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
+										<ul class="ul_li_block clearfix user-login-info">
+											<li><a id="user-porfile-trigger" href="./account.html"><i class="fal fa-user-circle"></i> Profile</a></li>
 											<li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
-											<li><a href="#!"><i class="fal fa-sign-out"></i> Logout</a></li>
+											<li><a class="logout-trigger"><i class="fal fa-sign-out"></i> Logout</a></li>
+										</ul>
+										<ul class="ul_li_block clearfix homepage-initial-info">
+											<li><a href="./login.html"><i class="fal fa-sign-in"></i> Login</a></li>
 										</ul>
 									</div>
 								</li>
@@ -399,128 +402,6 @@
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-self-center">
 							<h3>Your payment is successful!</h3>
 						</div>
-												
-						
-						<!-- <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12">
-							<div class="account_tabs_menu clearfix" data-bg-color="#F2F2F2" data-aos="fade-up" data-aos-delay="100">
-								<h3 class="list_title mb_15">Account Details:</h3>
-								<ul class="ul_li_block nav" role="tablist">
-									<li>
-										<a class="active" data-toggle="tab" href="#admin_tab"><i class="fas fa-user"></i> John Doe</a>
-									</li>
-									<li>
-										<a href="login.html"><i class="fas fa-sign-out-alt"></i> Log Out <img class="arrow" src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#profile_tab"><i class="fas fa-address-book"></i> Booking Profiles</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#history_tab"><i class="fas fa-file-alt"></i> Booking History</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-							<div class="account_tab_content tab-content">
-								<div id="admin_tab" class="tab-pane active">
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="list_title mb_30">Account:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Name:</span> Rakibul Islam Dewan</li>
-											<li><span>E-mail:</span> myname@email.com</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-											<li><span>Country:</span> United States</li>
-											<li><span>Address:</span> 60 Stonybrook Lane Atlanta, GA 30303</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Change Account Information</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="list_title mb_30">Booking Profiles:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Profile ID:</span> 1234557jt</li>
-											<li><span>Payment Method:</span> Visa Credit Card</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-										</ul>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="500">
-										<h3 class="list_title mb_30">Booking History:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Upcoming Reservations:</span> No Reservations Yet</li>
-											<li><span>Past Rentals:</span> 0</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Book A Car</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-								</div>
-
-								<div id="profile_tab" class="tab-pane fade">
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="list_title mb_30">Booking Profiles:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Profile ID:</span> 1234557jt</li>
-											<li><span>Payment Method:</span> Visa Credit Card</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-										</ul>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="list_title mb_30">Booking History:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Upcoming Reservations:</span> No Reservations Yet</li>
-											<li><span>Past Rentals:</span> 0</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Book A Car</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="500">
-										<h3 class="list_title mb_30">Account:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Name:</span> Rakibul Islam Dewan</li>
-											<li><span>E-mail:</span> myname@email.com</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-											<li><span>Country:</span> United States</li>
-											<li><span>Address:</span> 60 Stonybrook Lane Atlanta, GA 30303</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Change Account Information</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-								</div>
-
-								<div id="history_tab" class="tab-pane fade">
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="list_title mb_30">Booking History:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Upcoming Reservations:</span> No Reservations Yet</li>
-											<li><span>Past Rentals:</span> 0</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Book A Car</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="list_title mb_30">Booking Profiles:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Profile ID:</span> 1234557jt</li>
-											<li><span>Payment Method:</span> Visa Credit Card</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-										</ul>
-									</div>
-
-									<div class="account_info_list" data-aos="fade-up" data-aos-delay="500">
-										<h3 class="list_title mb_30">Account:</h3>
-										<ul class="ul_li_block clearfix">
-											<li><span>Name:</span> Rakibul Islam Dewan</li>
-											<li><span>E-mail:</span> myname@email.com</li>
-											<li><span>Phone Number:</span> +1-202-555-0104</li>
-											<li><span>Country:</span> United States</li>
-											<li><span>Address:</span> 60 Stonybrook Lane Atlanta, GA 30303</li>
-										</ul>
-										<a class="text_btn text-uppercase" href="#!"><span>Change Account Information</span> <img src="assets/images/icons/icon_02.png" alt="icon_not_found"></a>
-									</div>
-								</div>
-							</div>
-						</div> -->
-						
 					</div>
 				</div>
 			</section>
@@ -666,6 +547,14 @@
 		<!-- custom - jquery include -->
 		<script src="assets/js/custom.js"></script>
 
-		
+		<script src="assets/js/utilFunctions.js"></script>
+
+		<script>
+			initializationUserStatus();
+			
+			$("#logout-trigger").on("click", function () {
+				logoutProcess();
+			});
+		</script>
 	</body>
 </html>

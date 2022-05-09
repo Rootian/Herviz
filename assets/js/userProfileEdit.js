@@ -32,21 +32,24 @@ function renderingUserProfile() {
         usernameItem.readOnly = true;
         usernameItem.disabled = true;
 
+        function filterAttributes(value) {
+            return value === undefined ? "" : value;
+        }
         // set email
-        document.getElementById("user-email-profile").value = userProfileObject.email;
+        document.getElementById("user-email-profile").value = filterAttributes(userProfileObject.email);
 
         // set name
-        document.getElementById("user-firstname-profile").value = userProfileObject.firstName;
-        document.getElementById("user-lastname-profile").value = userProfileObject.lastName;
+        document.getElementById("user-firstname-profile").value = filterAttributes(userProfileObject.firstName);
+        document.getElementById("user-lastname-profile").value = filterAttributes(userProfileObject.lastName);
 
         // set phone number
-        document.getElementById("user-phone-number-profile").value = userProfileObject.phoneNo;
+        document.getElementById("user-phone-number-profile").value = filterAttributes(userProfileObject.phoneNo);
 
         // set address info
-        document.getElementById("user-address-profile").value = userProfileObject.address;
-        document.getElementById("user-city-profile").value = userProfileObject.city;
-        document.getElementById("user-state-profile").value = userProfileObject.state;
-        document.getElementById("user-zipcode-profile").value = userProfileObject.zipCode;
+        document.getElementById("user-address-profile").value = filterAttributes(userProfileObject.address);
+        document.getElementById("user-city-profile").value = filterAttributes(userProfileObject.city);
+        document.getElementById("user-state-profile").value = filterAttributes(userProfileObject.state);
+        document.getElementById("user-zipcode-profile").value = filterAttributes(userProfileObject.zipCode);
 
         // set individual or corporate info
         if (userProfileObject.type === "i") {
@@ -54,16 +57,16 @@ function renderingUserProfile() {
             individualInfo.hidden = false;
             corporateInfo.hidden = true;
             
-            document.getElementById("individual-user-driver-license-number").value = userProfileObject.dln;
-            document.getElementById("individual-user-insurance-company").value = userProfileObject.insrcCompany;
-            document.getElementById("individual-user-insurance-number").value = userProfileObject.insrcNo;
+            document.getElementById("individual-user-driver-license-number").value = filterAttributes(userProfileObject.dln);
+            document.getElementById("individual-user-insurance-company").value = filterAttributes(userProfileObject.insrcCompany);
+            document.getElementById("individual-user-insurance-number").value = filterAttributes(userProfileObject.insrcNo);
         }
-        else {
+        else if (userProfileObject.type === "c"){
             document.getElementById("corporate-user-button").checked = true;
             individualInfo.hidden = true;
             corporateInfo.hidden = false;
 
-            document.getElementById("corporate-name").selectedIndex = userProfileObject.corpId;
+            document.getElementById("corporate-name").selectedIndex = filterAttributes(userProfileObject.corpId);
         }
     });
 }

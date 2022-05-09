@@ -473,3 +473,7 @@ $("#order-submit-button").on("click", function(e) {
         }
     });
 });
+
+$("#logout-trigger").on("click", function () {
+    logoutProcess();
+})

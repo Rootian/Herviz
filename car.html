@@ -174,7 +174,7 @@
 										<i class="fal fa-user"></i>
 									</button>
 									<div class="user_dropdown rotors_dropdown dropdown-menu clearfix" aria-labelledby="user_dropdown">
-										<div class="profile_info clearfix">
+										<div class="profile_info clearfix user-login-info">
 											<a href="#!" class="user_thumbnail">
 												<img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
 											</a>
@@ -183,10 +183,13 @@
 												<span class="user_title">Seller</span>
 											</div>
 										</div>
-										<ul class="ul_li_block clearfix">
-											<li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
+										<ul class="ul_li_block clearfix user-login-info">
+											<li><a id="user-porfile-trigger" href="./account.html"><i class="fal fa-user-circle"></i> Profile</a></li>
 											<li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
-											<li><a href="#!"><i class="fal fa-sign-out"></i> Logout</a></li>
+											<li><a class="logout-trigger"><i class="fal fa-sign-out"></i> Logout</a></li>
+										</ul>
+										<ul class="ul_li_block clearfix homepage-initial-info">
+											<li><a href="./login.html"><i class="fal fa-sign-in"></i> Login</a></li>
 										</ul>
 									</div>
 								</li>
@@ -553,143 +556,6 @@
 							</div>
 
 							<div class="row" id="search-result-display">
-								<!-- <div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-												2015 Chevrolet Corvette Stingray Z51
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_08.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$230/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Gasoline</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-									let			2019 Chevrolet Corvette Stingray Red
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_02.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$230/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Hybrid</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-												2015 Chevrolet Corvette Stingray Z51
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_09.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$120/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Gasoline</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-												2020 Audi New Generation P00234
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_03.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$230/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Electro</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="100">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-												2015 Chevrolet Corvette Stingray Z51
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_06.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$160/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Gasoline</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6">
-									<div class="feature_vehicle_item" data-aos="fade-up" data-aos-delay="300">
-										<h3 class="item_title mb-0">
-											<a href="#!">
-												2015 Chevrolet Corvette Stingray Z51
-											</a>
-										</h3>
-										<div class="item_image position-relative">
-											<a class="image_wrap" href="#!">
-												<img src="assets/images/feature/img_01.jpg" alt="image_not_found">
-											</a>
-											<span class="item_price bg_default_blue">$230/Day</span>
-										</div>
-										<ul class="info_list ul_li_center clearfix">
-											<li>Sports</li>
-											<li>Auto</li>
-											<li>2 Passengers</li>
-											<li>Hybrid</li>
-										</ul>
-									</div>
-								</div>-->
-								
-								
-								<!-- <div class="col-lg-6 col-md-6">
-									<button id="test-btn" class="custom_btn bg_default_red btn_width text-uppercase">Test jQuery Button <img src="assets/images/icons/icon_01.png" alt="icon_not_found"></button>
-									
-								</div>  -->
 
 							</div>
 
@@ -1021,6 +887,9 @@
 				});
 			});
 
+			$("#logout-trigger").on("click", function () {
+				logoutProcess();
+			});
 		</script>
 		
 	</body>

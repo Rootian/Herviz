@@ -110,3 +110,7 @@ $("#user-profile-trigger").on("click", function(e) {
     e.preventDefault();
     window.location.href = "./account.html";
 })
+
+$("#logout-trigger").on("click", function () {
+    logoutProcess();
+})

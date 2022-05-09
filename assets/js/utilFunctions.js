@@ -51,7 +51,7 @@ function generateVehicleDisplayItem(vehicle) {
 	let vehicle_title_item = document.createElement("a");
 	vehicle_title_item.classList.add("vehicle_name", `vehicleID_${resultItemID}`);
 	// vehicle_title_item.setAttribute("href", "#!");
-	vehicle_title_item.textContent = `Vehicle No.${resultItemID}`;
+	vehicle_title_item.textContent = `${vehicle.type}`;
 	search_result_vehicle_name.appendChild(vehicle_title_item);
 
 	let search_result_vehicle_image_item = document.createElement("div");
