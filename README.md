@@ -1,7 +1,7 @@
 # Herviz
 Herviz is a North American car rental website that provides car rental services, order management services, and user center services
 
-[中文](https://github.com/DB-CarRet/Herviz) | **English**
+[中文](https://github.com/DB-CarRet/Herviz/blob/master/README_zh.md) | **English**
 
 
 
