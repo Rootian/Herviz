@@ -1,6 +1,6 @@
 Herviz 是一个北美租车网站，提供租车服务、订单管理服务以及用户中心服务
 
-**中文** | [English](https://github.com/DB-CarRet/Herviz)
+**中文** | [English](https://github.com/Rootian/Herviz)
 
 
 
